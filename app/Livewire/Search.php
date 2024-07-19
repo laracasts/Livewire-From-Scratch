@@ -22,6 +22,10 @@ class Search extends Component
         $this->results = Article::where('title', 'LIKE', $searchTerm)->get();
     }
 
+    public function clear() {
+        $this->reset('results', 'searchText');
+    }
+
 
     public function render()
     {
