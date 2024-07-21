@@ -15,7 +15,7 @@
         </style>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50">
+    <body class="font-sans antialiased dark:bg-black dark:text-white/50" x-data x-on:click="$dispatch('search:clear-results')">
         <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
             <div class="relative flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
@@ -32,5 +32,10 @@
                 </div>
             </div>
         </div>
+        <script>
+            document.addEventListener('search:clear-results', function(e) {
+                console.log('cleared results');
+            });
+        </script>
     </body>
 </html>
