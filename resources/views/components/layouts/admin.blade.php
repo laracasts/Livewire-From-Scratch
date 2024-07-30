@@ -20,14 +20,13 @@
                             <div class="w-full block" id="navbar-default">
                                 <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
                                     <li>
-                                        <a href="/" class="block py-2 px-3 text-blue-500">Home</a>
+                                        <a href="/dashboard" class="block py-2 px-3 text-blue-500">Admin Dashboard</a>
                                     </li>
                                     <li>
-                                        <a href="/dashboard" class="block py-2 px-3 text-blue-500">Admin Dashboard</a>
+                                        <a href="/dashboard/articles" class="block py-2 px-3 text-blue-500">Articles</a>
                                     </li>
                                 </ul>
                             </div>
-                            <livewire:search placeholder="type something to search">
                         </div>
                     </nav>
 
