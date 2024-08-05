@@ -24,6 +24,40 @@
             </div>
         </div>
         <div class="mb-3">
+            <label class="flex items-center">
+                <input type="checkbox" name="published" 
+                    class="mr-2"
+                    wire:model.boolean="form.published"
+                >
+                Published
+            </label>
+        </div>
+        <div class="mb-3">
+            <div>
+                <div class="mb-2">Notification Options</div>
+                <div class="flex gap-6">
+                    <label class="flex items-center">
+                        <input type="radio" value="email" class="mr-2"
+                            wire:model="form.notification"
+                        >
+                        Email
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" value="sms" class="mr-2"
+                            wire:model="form.notification"
+                        >
+                        SMS
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" value="none" class="mr-2"
+                            wire:model="form.notification"
+                        >
+                        None
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
             <button 
                 class="text-gray-200 p-2 bg-indigo-700 hover:bg-indigo-900 rounded-sm"
                 type="submit"
