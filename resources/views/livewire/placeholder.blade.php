@@ -1,3 +1,3 @@
-<div>
+<span>
     {{$message}}
-</div>
+</span>
