@@ -18,10 +18,12 @@ class EditArticle extends AdminComponent
     public function save() {
         $this->form->update();
 
-        $this->redirect('/dashboard/articles', navigate: true);
+        session()->flash('status', 'Article successfully updated.');
+
+        $this->redirect(ArticleList::class, navigate: true);
     }
 
-    
+
     public function render()
     {
         return view('livewire.edit-article');
