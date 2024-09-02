@@ -15,12 +15,31 @@
         <div class="mb-3">
             <label class="block" for="article-content">Content</label>
             <textarea
-                id="article-content""
+                id="article-content"
                 class="p-2 w-full border rounded-md bg-gray-700 text-white"
                 wire:model="form.content"
             ></textarea>
             <div>
                 @error('content') <span class="text-red-600">{{ $message }}</span> @enderror
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="block" for="article-content">
+                Photo
+            </label>
+            <div class="flex items-center">
+                <input type="file"
+                       wire:model="form.photo"
+                       multiple
+                >
+                <div>
+                    @if($form->photo)
+                        <img class="w-1/2" src="{{ $form->photo->temporaryUrl() }}">
+                    @endif
+                </div>
+            </div>
+            <div>
+                @error('photo') <span class="text-red-600">{{ $message }}</span> @enderror
             </div>
         </div>
         <div class="mb-3">

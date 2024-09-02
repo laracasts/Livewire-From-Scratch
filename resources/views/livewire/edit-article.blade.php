@@ -12,7 +12,7 @@
                 wire:model="form.title"
             >
             <div>
-                @error('title') <span class="text-red-600"">{{ $message }}</span> @enderror
+                @error('title') <span class="text-red-600">{{ $message }}</span> @enderror
             </div>
         </div>
         <div class="mb-3">
@@ -20,12 +20,32 @@
                 Content<span wire:dirty wire:target="form.content">*</span>
             </label>
             <textarea
-                id="article-content""
+                id="article-content"
                 class="p-2 w-full border rounded-md bg-gray-700 text-white"
                 wire:model="form.content"
             ></textarea>
             <div>
                 @error('content') <span class="text-red-600">{{ $message }}</span> @enderror
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="block" for="article-content">
+                Photo
+            </label>
+            <div class="flex items-center">
+                <input type="file"
+                       wire:model="form.photo"
+                >
+                <div>
+                    @if($form->photo)
+                        <img class="w-1/2" src="{{ $form->photo->temporaryUrl() }}">
+                    @elseif($form->photo_path)
+                        <img class="w-1/2" src="{{ Storage::url($form->photo_path) }}">
+                    @endif
+                </div>
+            </div>
+            <div>
+                @error('photo') <span class="text-red-600">{{ $message }}</span> @enderror
             </div>
         </div>
         <div class="mb-3">
@@ -80,11 +100,8 @@
         </div>
         <div class="mb-3">
             <button
-                class="text-gray-200 p-2 bg-blue-700 rounded-sm disabled:opacity-75 disabled:bg-blue-300"
+                class="text-gray-200 p-2 bg-blue-700 rounded-sm hover:bg-blue-900"
                 type="submit"
-                wire:dirty.class="hover:bg-blue-900"
-                wire:dirty.remove.attr="disabled"
-                disabled
             >
                 Save
             </button>
